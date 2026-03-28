@@ -7,9 +7,12 @@ namespace {
 	class Role {
 	public:
 		Role();
+
+		virtual long long getAttack()=0;  
+
 	protected:
-		int atrrk;
-		int 
+		int attack;
+		int defense;
 	};
 }
 

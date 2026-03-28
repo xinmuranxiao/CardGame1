@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\Role">
+      <UniqueIdentifier>{ab7ccd36-da1c-40ee-800a-db3e14aeada5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -29,8 +32,14 @@
     <ClInclude Include="CardGameRandom.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GeneralRole.h">
+    <ClInclude Include="GeneralRoleCommon.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Double.h">
+      <Filter>头文件\Role</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralRole.h">
+      <Filter>头文件\Role</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
