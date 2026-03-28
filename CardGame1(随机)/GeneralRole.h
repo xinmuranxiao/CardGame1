@@ -6,13 +6,11 @@
 namespace {
 	class Role {
 	public:
-		Role();
-
 		virtual long long getAttack()=0;  
 
 	protected:
-		int attack;
-		int defense;
+		int attack = 1;
+		int defense = 1;
 	};
 }
 

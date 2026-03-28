@@ -24,6 +24,9 @@
     <ClCompile Include="CardGameRandom.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Tools.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="GeneralRole.h">
       <Filter>头文件\Role</Filter>
+    </ClInclude>
+    <ClInclude Include="Tools.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

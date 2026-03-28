@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="CardGameRandom.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CardGameRandom.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="Double.h" />
     <ClInclude Include="GeneralRole.h" />
     <ClInclude Include="GeneralRoleCommon.h" />
+    <ClInclude Include="Tools.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -3,6 +3,4 @@
 
 #include "Common.h"
 
-
-
 #endif // !CARDGAMERANDOM_H
