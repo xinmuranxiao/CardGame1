@@ -47,5 +47,8 @@
     <ClInclude Include="Tools.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Role.h">
+      <Filter>头文件\Role</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,14 +3,19 @@
 
 #include "Common.h"
 
+#include ""
+
+
+using PlayerGameR = std::pair<std::pair<uint64_t, std::string>, std::pair<int, int>>;
+
+
 namespace {
 	class Role {
 	public:
-		virtual long long getAttack()=0;  
+		virtual long long getAttack() = 0;
 
 	protected:
-		int attack = 1;
-		int defense = 1;
+		PlayerGameR basic;
 	};
 }
 
