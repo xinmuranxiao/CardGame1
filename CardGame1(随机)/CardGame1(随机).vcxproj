@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CardGameRandom.cpp" />
+    <ClCompile Include="Double.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tools.cpp" />
   </ItemGroup>
@@ -133,7 +134,7 @@
     <ClInclude Include="Common.h" />
     <ClInclude Include="Double.h" />
     <ClInclude Include="GeneralRole.h" />
-    <ClInclude Include="GeneralRoleCommon.h" />
+    <ClInclude Include="RandomCommon.h" />
     <ClInclude Include="Role.h" />
     <ClInclude Include="Tools.h" />
   </ItemGroup>

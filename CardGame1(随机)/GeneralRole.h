@@ -1,22 +1,21 @@
 #ifndef GENERALROLE_H
 #define GENERALROLE_H
 
-#include "Common.h"
+#include "RandomCommon.h"
 
-#include ""
+namespace GameRandom {
 
+	namespace role {
+		class Role {
+		public:
+			virtual float getAttack() = 0;
 
-using PlayerGameR = std::pair<std::pair<uint64_t, std::string>, std::pair<int, int>>;
+			virtual float getDamage() = 0;
 
-
-namespace {
-	class Role {
-	public:
-		virtual long long getAttack() = 0;
-
-	protected:
-		PlayerGameR basic;
-	};
+		protected:
+			RoleType basic;
+		};
+	}
 }
 
 #endif // !GENERALROLE_H

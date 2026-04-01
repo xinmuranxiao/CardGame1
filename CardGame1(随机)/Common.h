@@ -2,7 +2,9 @@
 #define COMMON_H
 
 #include <iostream>
+#include <fstream>
 #include <string.h>
+#include <random>
 
 using OutFunc = void(*)(std::string);
 

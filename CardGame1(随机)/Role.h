@@ -1,6 +1,6 @@
 #ifndef ROLE_H
 #define ROLE_H
 
-#include "Role.h"
+#include "Double.h"
 
 #endif // !ROLE_H

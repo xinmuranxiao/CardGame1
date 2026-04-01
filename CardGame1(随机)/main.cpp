@@ -2,15 +2,11 @@
 
 int main() {
 
-	tools::Tools Out;
+	tools::Out Out;
 
-	tools::Tools Input;
+	tools::Input Input;
 
-	std::string a;
-
-	Out.input(a);
-
-	Input.out(a);
+	GameRandom::GameRandom(Out, Input);
 
 	return 0;
 }

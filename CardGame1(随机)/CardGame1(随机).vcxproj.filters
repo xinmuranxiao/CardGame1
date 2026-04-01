@@ -16,6 +16,9 @@
     <Filter Include="头文件\Role">
       <UniqueIdentifier>{ab7ccd36-da1c-40ee-800a-db3e14aeada5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Role">
+      <UniqueIdentifier>{6beec2ee-38c9-4a98-8283-8680325101df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,21 +30,15 @@
     <ClCompile Include="Tools.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Double.cpp">
+      <Filter>源文件\Role</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="CardGameRandom.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneralRoleCommon.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Double.h">
-      <Filter>头文件\Role</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneralRole.h">
       <Filter>头文件\Role</Filter>
     </ClInclude>
     <ClInclude Include="Tools.h">
@@ -49,6 +46,15 @@
     </ClInclude>
     <ClInclude Include="Role.h">
       <Filter>头文件\Role</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomCommon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CardGameRandom.h">
+      <Filter>头文件\Role</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralRole.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
