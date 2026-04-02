@@ -72,6 +72,11 @@ namespace tools {
 
 	GameRandom::RoleType File::Load_GameRandomRole(std::string& address_) {
 		std::ifstream file(address_);
+		if (file.is_open()) {
+			GameRandom::RoleType error;
+			error.name = std::string("error");
+			return error;
+		}
 		GameRandom::RoleType load_role;
 		file >> load_role.CID >> load_role.name >> load_role.HP >>
 			load_role.MP >> load_role.SkillMP >> load_role.attack >>

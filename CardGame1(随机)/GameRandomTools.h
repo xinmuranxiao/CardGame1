@@ -12,6 +12,8 @@ namespace GameRandom {
 		void setPlayer(std::unique_ptr<role::Role>& player,
 			tools::Out& R_Out,
 			tools::Input& R_Input);
+
+		bool judge(tools::Out& R_Out, tools::Input& R_Input);
 	};
 }
 

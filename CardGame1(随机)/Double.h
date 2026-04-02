@@ -9,7 +9,7 @@ namespace GameRandom {
 	namespace role {
 		class Double :public Role {
 		public:
-			Double(tools::Out& R_Out);
+			Double(tools::Out& R_Out, tools::Input& R_Input);
 
 			void showBasic(tools::Out& R_Out);
 
