@@ -17,14 +17,23 @@ namespace tools {
 
 		int random(std::uniform_int_distribution<>& dis, std::mt19937& gen);
 	
-		virtual GameRandom::RoleType Load_GameRandomRole(std::string& address_);
+		virtual GameRandom::RoleType Load_GameRandomRole(std::string& address_) = 0;
 	};
 
-	class Input :public Tools {};
+	class Input :public Tools {
+	public:
+		GameRandom::RoleType Load_GameRandomRole(std::string& address_) override;
+	};
 
-	class Out :public Tools{};
+	class Out :public Tools{
+	public:
+		GameRandom::RoleType Load_GameRandomRole(std::string& address_) override;
+	};
 
-	class Random:public Tools {};
+	class Random:public Tools {
+	public:
+		GameRandom::RoleType Load_GameRandomRole(std::string& address_) override;
+	};
 
 	class File :public Tools {
 	public:

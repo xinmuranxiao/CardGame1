@@ -54,6 +54,18 @@ namespace tools {
 		return dis(gen);
 	}
 	
+	GameRandom::RoleType Input::Load_GameRandomRole(std::string& address_) {
+		return GameRandom::RoleType{};
+	}
+
+	GameRandom::RoleType Out::Load_GameRandomRole(std::string& address_) {
+		return GameRandom::RoleType{};
+	}
+
+	GameRandom::RoleType Random::Load_GameRandomRole(std::string& address_) {
+		return GameRandom::RoleType{};
+	}
+
 	GameRandom::RoleType File::Load_GameRandomRole(std::string& address_) {
 		std::ifstream file;
 		GameRandom::RoleType load_role;
