@@ -1,30 +1,37 @@
 #include "CardGameRandom.h"
 
 namespace GameRandom {
-	void showRole(tools::Out& R_Out) {
-		R_Out.out(std::string("1.double(达博)"));
-	}
-
 	int GameRandom(tools::Out& R_Out, tools::Input& R_Input) {
 
-		system("cls");
+		R_Out.System("cls");
 
-		tools::Random Random;
+		tools::Random Random;//生成随机数对象
+		GameRandomTools tools;
 
 		std::random_device rd;//生成随机数种子
 		std::mt19937 gen(rd());//转换数
 		std::uniform_int_distribution<> dis(0,9);//设置范围
 
-		R_Out.out(std::string("请输入使用的角色"));
-
-		showRole(R_Out);
-
-		std::string judge_str_player;
-		R_Input.input(judge_str_player);
-		role::Role* player=NULL;
-		if (judge_str_player[0] == '1') {
-			player = new role::Double(R_Out);
+		std::unique_ptr<role::Role> player; 
+		player = NULL;
+		while (1) {
+			try {
+				tools.setPlayer(player,R_Out,R_Input);
+			}
+			catch (...) {
+				R_Out.out("know error");
+				exit(1);
+			}
+			R_Out.out(std::string("你选择的是"));
+			player->showBasic(R_Out);//查看选择
+			R_Out.out("确定输入Y/y,重选其他任意键");
+			std::string judge;
+			R_Input.input(judge);
+			if (judge == "y" || judge == "Y") {
+				break;
+			}
 		}
+
 		return 1;
 	}
 }

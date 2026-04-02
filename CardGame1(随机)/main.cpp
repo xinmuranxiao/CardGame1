@@ -2,11 +2,14 @@
 
 int main() {
 
-	tools::Out Out;
+	tools::Out Out;//设置输出流
 
-	tools::Input Input;
+	tools::Input Input;//设置输入流
 
-	GameRandom::GameRandom(Out, Input);
+	Out.out(std::string("any key start"));//开始界面
+	Input.System(std::string("pause"));
+
+	GameRandom::GameRandom(Out, Input);//开始游戏
 
 	return 0;
 }

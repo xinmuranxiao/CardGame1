@@ -18,6 +18,8 @@ namespace tools {
 		int random(std::uniform_int_distribution<>& dis, std::mt19937& gen);
 	
 		virtual GameRandom::RoleType Load_GameRandomRole(std::string& address_) = 0;
+
+		void System(const std::string& str);
 	};
 
 	class Input :public Tools {
@@ -38,8 +40,6 @@ namespace tools {
 	class File :public Tools {
 	public:
 		GameRandom::RoleType Load_GameRandomRole(std::string& address_) override;
-	protected:
-		std::string address;
 	};
 }
 

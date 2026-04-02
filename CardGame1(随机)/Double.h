@@ -11,7 +11,7 @@ namespace GameRandom {
 		public:
 			Double(tools::Out& R_Out);
 
-			RoleType getBasic();
+			void showBasic(tools::Out& R_Out);
 
 			float getAttack()override;
 			float getDamage()override;

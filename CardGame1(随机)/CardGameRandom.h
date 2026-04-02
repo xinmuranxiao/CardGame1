@@ -7,6 +7,8 @@
 
 #include "Role.h"
 
+#include "GameRandomTools.h"
+
 namespace GameRandom {
 	int GameRandom(tools::Out& R_Out, tools::Input& R_Input);
 }
