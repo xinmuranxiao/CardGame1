@@ -3,19 +3,23 @@
 namespace GameRandom {
 	namespace role {
 		Double::Double(tools::Out& R_Out, tools::Input& R_Input) {
-		RE:
-			tools::File File;
-			basic=File.Load_GameRandomRole(address);
-			if (basic.name == "error") {
-				R_Out.out(std::string("读取失败"));
-				R_Out.out("确定输入Y/y,重选其他任意键");
-				std::string judge;
-				R_Input.input(judge);
-				if (judge == "y" || judge == "Y") {
-					goto RE;
+			while (1) {
+				tools::File File;
+				basic = File.Load_GameRandomRole(address);
+				if (basic.name == "error") {
+					R_Out.out(std::string("读取失败"));
+					R_Out.out("确定输入Y/y,重选其他任意键");
+					std::string judge;
+					R_Input.input(judge);
+					if (judge == "y" || judge == "Y") {
+						continue;
+					}
+					else {
+						throw std::ios_base::failure(address+std::string(":read file error"));
+					}
 				}
 				else {
-					throw std::ios_base::failure(std::string("read file error"));
+					break;
 				}
 			}
 		}

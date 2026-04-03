@@ -13,14 +13,32 @@ namespace GameRandom {
 			showRole(R_Out);
 			std::string judge_str_player;
 			R_Input.input(judge_str_player);
-			if (judge_str_player[0] == '1') {
-				player = std::make_unique<role::Double>(R_Out,R_Input);
+			if (chooseRole(judge_str_player,
+				R_Out, R_Input, player)) {
 				break;
 			}
-			else {
-				R_Out.System("cls");
-				R_Out.out(std::string("输入错误,请重输"));
-			}
+		}
+	}
+
+	void GameRandomTools::setAI(std::unique_ptr<role::Role>& AI,
+		tools::Out& R_Out,tools::Input& R_Input) {
+		std::random_device rd;//生成随机数种子
+		std::mt19937 gen(rd());//转换数
+		std::uniform_int_distribution<> dis(0, 1);//设置范围
+		chooseRole(std::to_string(dis(gen)), R_Out, R_Input, AI);
+	}
+
+	bool GameRandomTools::chooseRole(const std::string judge_str_player,
+		tools::Out& R_Out, tools::Input& R_Input,
+		std::unique_ptr<role::Role>& judge_Role) {
+		if (judge_str_player[0] == '1') {
+			judge_Role = std::make_unique<role::Double>(R_Out, R_Input);
+			return 1;
+		}
+		else {
+			R_Out.System("cls");
+			R_Out.out(std::string("输入错误,请重输"));
+			return 0;
 		}
 	}
 

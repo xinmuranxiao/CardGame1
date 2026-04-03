@@ -16,6 +16,10 @@ namespace GameRandom {
 			try {
 				tools.setPlayer(player,R_Out,R_Input);
 			}
+			catch (const std::ios_base::failure& e) {
+				R_Out.out(e.what());
+				exit(2);
+			}
 			catch (...) {
 				R_Out.out("know error");
 				exit(1);
@@ -26,6 +30,24 @@ namespace GameRandom {
 				break;
 			}
 		}
+
+		std::unique_ptr<role::Role> AI = nullptr;
+		R_Out.out(std::string("AI选择的是："));
+		try {
+			tools.setAI(AI, R_Out, R_Input);
+		}
+		catch (const std::ios_base::failure& e) {
+			R_Out.out(e.what());
+			exit(2);
+		}
+		catch (...) {
+			R_Out.out("know error");
+			exit(1);
+		}
+		AI->showBasic(R_Out);
+
+		R_Out.out(std::string("游戏开始"));
+		R_Input.System(std::string("pause"));
 
 		return 1;
 	}
