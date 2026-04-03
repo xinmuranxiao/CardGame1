@@ -12,14 +12,16 @@ namespace GameRandom {
 		int HP;//血量
 		int MP;//蓝值
 
-		int SkillMP;//技能蓝量
+		
+		int activeSkillMP;//主动技能蓝量
+		int passiveSkill;//被动技能
 
 		float attack;//攻击倍率
 		float damage;//防御倍率
 
-		int dicenum;
-		int ATKnum;
-		int DMGnum;
+		int dicenum;//总量
+		int ATKnum;//攻击牌
+		int DMGnum;//防御牌
 	};
 }
 

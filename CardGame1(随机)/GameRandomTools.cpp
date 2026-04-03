@@ -25,7 +25,11 @@ namespace GameRandom {
 		std::random_device rd;//生成随机数种子
 		std::mt19937 gen(rd());//转换数
 		std::uniform_int_distribution<> dis(0, 1);//设置范围
-		chooseRole(std::to_string(dis(gen)), R_Out, R_Input, AI);
+		while (1) {
+			if (chooseRole(std::to_string(dis(gen)), R_Out, R_Input, AI)) {
+				break;
+			}
+		}
 	}
 
 	bool GameRandomTools::chooseRole(const std::string judge_str_player,

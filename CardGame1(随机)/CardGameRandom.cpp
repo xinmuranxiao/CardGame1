@@ -29,6 +29,7 @@ namespace GameRandom {
 			if (tools.judge(R_Out, R_Input)) {
 				break;
 			}
+			R_Out.System("cls");
 		}
 
 		std::unique_ptr<role::Role> AI = nullptr;
@@ -49,6 +50,16 @@ namespace GameRandom {
 		R_Out.out(std::string("游戏开始"));
 		R_Input.System(std::string("pause"));
 
-		return 1;
+		while (1) {
+			R_Out.System("cls");
+			if (AI->getHP() < 0 || player->getHP() < 0) {
+				break;
+			}
+			else if(tools.judge(R_Out,R_Input)) {
+				break;
+			}
+		}
+
+		return (player->getHP() - AI->getHP())/5;//总的硬币变化为对应血量
 	}
 }

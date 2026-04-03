@@ -11,5 +11,7 @@ int main() {
 
 	GameRandom::GameRandom(Out, Input);//开始游戏
 
+	std::cout << "运行结束" << std::endl;
+
 	return 0;
 }

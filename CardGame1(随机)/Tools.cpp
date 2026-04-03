@@ -79,9 +79,10 @@ namespace tools {
 		}
 		GameRandom::RoleType load_role;
 		file >> load_role.CID >> load_role.name >> load_role.HP >>
-			load_role.MP >> load_role.SkillMP >> load_role.attack >>
-			load_role.damage >> load_role.dicenum >> load_role.ATKnum >>
-			load_role.DMGnum;
+			load_role.MP >> load_role.activeSkillMP >>
+			load_role.passiveSkill>> load_role.attack >>
+			load_role.damage >> load_role.dicenum >> 
+			load_role.ATKnum >>load_role.DMGnum;
 		return load_role;
 	}
 }

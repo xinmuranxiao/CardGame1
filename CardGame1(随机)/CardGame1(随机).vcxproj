@@ -127,6 +127,7 @@
     <ClCompile Include="CardGameRandom.cpp" />
     <ClCompile Include="Double.cpp" />
     <ClCompile Include="GameRandomTools.cpp" />
+    <ClCompile Include="GeneralRole.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Tools.cpp" />
   </ItemGroup>

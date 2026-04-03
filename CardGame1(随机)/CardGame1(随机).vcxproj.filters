@@ -36,6 +36,9 @@
     <ClCompile Include="GameRandomTools.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="GeneralRole.cpp">
+      <Filter>源文件\Role</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h">

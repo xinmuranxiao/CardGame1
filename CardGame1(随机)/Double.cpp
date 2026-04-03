@@ -23,6 +23,9 @@ namespace GameRandom {
 				}
 			}
 		}
+
+		
+
 		void Double::showBasic(tools::Out& R_Out) {
 			R_Out.out(std::string("姓名:") + basic.name);//输出性别
 			R_Out.out(std::string("HP:") + std::to_string(basic.HP));
