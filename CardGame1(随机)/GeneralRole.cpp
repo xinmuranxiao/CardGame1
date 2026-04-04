@@ -9,5 +9,13 @@ namespace GameRandom {
 		int Role::getHP() {
 			return basic.HP;
 		}
+
+		float Role::getAttack() {
+			return basic.attack;
+		}
+
+		float Role::getDamage() {
+			return basic.damage;
+		}
 	}
 }

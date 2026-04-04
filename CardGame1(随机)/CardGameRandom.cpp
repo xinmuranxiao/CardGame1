@@ -51,6 +51,7 @@ namespace GameRandom {
 		R_Input.System(std::string("pause"));
 
 		while (1) {
+
 			R_Out.System("cls");
 			if (AI->getHP() < 0 || player->getHP() < 0) {
 				break;

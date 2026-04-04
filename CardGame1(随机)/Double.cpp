@@ -22,9 +22,12 @@ namespace GameRandom {
 					break;
 				}
 			}
+			DCM.reserve(basic.dicenum);
 		}
 
-		
+		void Double::pushRandom() {
+
+		}
 
 		void Double::showBasic(tools::Out& R_Out) {
 			R_Out.out(std::string("姓名:") + basic.name);//输出性别
@@ -35,12 +38,5 @@ namespace GameRandom {
 			R_Out.out(std::string("防御骰子:") + std::to_string(basic.DMGnum));
 		}
 
-		float Double::getAttack() {
-			return basic.attack;
-		}
-
-		float Double::getDamage() {
-			return basic.damage;
-		}
 	}
 }

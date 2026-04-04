@@ -14,8 +14,6 @@ namespace tools {
 		int to_int(const std::string& str);//string to int
 
 		double to_float(const std::string& str);//string to float
-
-		int random(std::uniform_int_distribution<>& dis, std::mt19937& gen);
 	
 		virtual GameRandom::RoleType Load_GameRandomRole(std::string& address_) = 0;
 

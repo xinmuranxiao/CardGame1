@@ -22,6 +22,8 @@ namespace GameRandom {
 
 		bool judge(tools::Out& R_Out, tools::Input& R_Input);
 	};
+
+
 }
 
 #endif // RANDOMCOMMON_H

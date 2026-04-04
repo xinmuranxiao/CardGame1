@@ -49,10 +49,6 @@ namespace tools {
 		}
 		return POM*num;
 	}
-
-	int Tools::random(std::uniform_int_distribution<>& dis, std::mt19937& gen) {
-		return dis(gen);
-	}
 	
 	void Tools::System(const std::string& str) {
 		system(str.c_str());
