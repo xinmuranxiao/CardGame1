@@ -38,5 +38,15 @@ namespace GameRandom {
 			R_Out.out(std::string("·ÀÓù÷»×Ó:") + std::to_string(basic.DMGnum));
 		}
 
+		float Double::getAttack() {
+			float ATK=basic.attack;
+			if (nowActiveSkill) {
+				nowActiveSkill = 0;
+				ATK *= 2;
+			}
+			if (passiveSkill()) {
+				ATK *= 2;
+			}
+		}
 	}
 }

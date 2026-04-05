@@ -11,13 +11,13 @@ namespace GameRandom {//规定在GameRandom的命名空间
 		public://公共函数
 			Double(tools::Out& R_Out, tools::Input& R_Input);//构造读取Double信息
 
-			float getAttack()override;//获取
+			float getAttack()override;//获取攻击倍率
 
 			void showBasic(tools::Out& R_Out);//输出基础的信息（名称和HP,MP,攻击骰子，防御骰子）
 
 			void pushRandom()override;
 		protected:
-			int getRandom();
+			bool passiveSkill();
 
 			std::vector<int>DCM;
 

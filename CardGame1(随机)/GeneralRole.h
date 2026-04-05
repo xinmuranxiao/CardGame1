@@ -24,7 +24,8 @@ namespace GameRandom {
 		protected:
 			RoleType basic;//´æ´¢Êý¾Ý
 
-			int nowSkil=0;
+			bool nowActiveSkill = 0;
+			bool nowPassiveSkill = 0;
 
 			bool skillopen=0;
 		};
