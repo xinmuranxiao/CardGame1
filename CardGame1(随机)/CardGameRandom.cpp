@@ -43,9 +43,13 @@ namespace gamerandom {
 		tools::out(std::string("ÓÎÏ·¿ªÊ¼"));
 		tools::System(std::string("pause"));
 
-		while (1) {
+		std::unique_ptr<Role> &Attack = player;
+		std::unique_ptr<Role> &Defense = AI;
 
+		while (1) {
 			tools::System("cls");
+			Attack->pushRandom();
+			Attack->showDCM();
 			if (AI->getHP() < 0 || player->getHP() < 0) {
 				break;
 			}

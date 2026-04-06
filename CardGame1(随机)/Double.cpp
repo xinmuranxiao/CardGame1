@@ -41,6 +41,14 @@ namespace gamerandom {
 		return ATK;
 	}
 
+	void Double::showDCM() {
+		std::string str = std::string("抽取的数值为:\n");
+		for (int i = 0; i < DCM.size(); i++) {
+			str += std::to_string(DCM[i]) + " ";
+		}
+		tools::out(str);
+	}
+
 	bool Double::passiveSkill() {
 		return Random(10) - basic.passiveSkill > 0 ? 1 : 0;
 	}

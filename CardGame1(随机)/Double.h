@@ -14,6 +14,8 @@ namespace gamerandom {//规定在gamerandom的命名空间
 		void showBasic();//输出基础的信息（名称和HP,MP,攻击骰子，防御骰子）
 
 		void pushRandom()override;
+
+		void showDCM();//输出抽取的数值
 	protected:
 		bool passiveSkill();
 
