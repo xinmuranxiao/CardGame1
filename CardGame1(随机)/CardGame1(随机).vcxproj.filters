@@ -33,11 +33,14 @@
     <ClCompile Include="Double.cpp">
       <Filter>源文件\Role</Filter>
     </ClCompile>
-    <ClCompile Include="GameRandomTools.cpp">
+    <ClCompile Include="CGRTools.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="GeneralRole.cpp">
       <Filter>源文件\Role</Filter>
+    </ClCompile>
+    <ClCompile Include="CGRFarmWork.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,16 +56,13 @@
     <ClInclude Include="Role.h">
       <Filter>头文件\Role</Filter>
     </ClInclude>
-    <ClInclude Include="RandomCommon.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="CardGameRandom.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="GeneralRole.h">
       <Filter>头文件\Role</Filter>
     </ClInclude>
-    <ClInclude Include="GameRandomTools.h">
+    <ClInclude Include="CGRTools.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

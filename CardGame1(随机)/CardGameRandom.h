@@ -1,16 +1,17 @@
 #ifndef CARDGAMERANDOM_H
 #define CARDGAMERANDOM_H
 
-#include "Common.h"
-
-#include "Tools.h"
-
 #include "Role.h"
+#include "CGRTools.h"
 
-#include "GameRandomTools.h"
+namespace gamerandom {
+	bool chooseRole(const std::string judge_str_player, std::unique_ptr<Role>& judge_Role);
 
-namespace GameRandom {
-	int GameRandom(tools::Out& R_Out, tools::Input& R_Input);
+	void setPlayer(std::unique_ptr<Role>& player);
+
+	void setAI(std::unique_ptr<Role>& AI);
+
+	int GameRandom();
 }
 
 #endif // !CARDGAMERANDOM_H

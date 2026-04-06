@@ -1,62 +1,55 @@
 #include "CardGameRandom.h"
 
-namespace GameRandom {
-	int GameRandom(tools::Out& R_Out, tools::Input& R_Input) {
-		R_Out.System("cls");//清屏
-		
-		tools::Random Random;//生成随机数对象
-		GameRandomTools tools;
+namespace gamerandom {
+	int GameRandom() {
+		tools::System("cls");//清屏
 
-		std::random_device rd;//生成随机数种子
-		std::mt19937 gen(rd());//转换数
-		std::uniform_int_distribution<> dis(0,9);//设置范围
-
-		std::unique_ptr<role::Role> player = nullptr;
+		std::unique_ptr<Role> player = nullptr;
 		while (1) {
 			try {
-				tools.setPlayer(player,R_Out,R_Input);
+				setPlayer(player);
 			}
 			catch (const std::ios_base::failure& e) {
-				R_Out.out(e.what());
+				tools::out(e.what());
 				exit(2);
 			}
 			catch (...) {
-				R_Out.out("know error");
+				tools::out("know error");
 				exit(1);
 			}
-			R_Out.out(std::string("你选择的是"));
-			player->showBasic(R_Out);//查看选择
-			if (tools.judge(R_Out, R_Input)) {
+			tools::out(std::string("你选择的是"));
+			player->showBasic();//查看选择
+			if (judge()) {
 				break;
 			}
-			R_Out.System("cls");
+			tools::System("cls");
 		}
 
-		std::unique_ptr<role::Role> AI = nullptr;
-		R_Out.out(std::string("AI选择的是："));
+		std::unique_ptr<Role> AI = nullptr;
+		tools::out(std::string("AI选择的是："));
 		try {
-			tools.setAI(AI, R_Out, R_Input);
+			setAI(AI);
 		}
 		catch (const std::ios_base::failure& e) {
-			R_Out.out(e.what());
+			tools::out(e.what());
 			exit(2);
 		}
 		catch (...) {
-			R_Out.out("know error");
+			tools::out("know error");
 			exit(1);
 		}
-		AI->showBasic(R_Out);
+		AI->showBasic();
 
-		R_Out.out(std::string("游戏开始"));
-		R_Input.System(std::string("pause"));
+		tools::out(std::string("游戏开始"));
+		tools::System(std::string("pause"));
 
 		while (1) {
 
-			R_Out.System("cls");
+			tools::System("cls");
 			if (AI->getHP() < 0 || player->getHP() < 0) {
 				break;
 			}
-			else if(tools.judge(R_Out,R_Input)) {
+			else if(judge()) {
 				break;
 			}
 		}

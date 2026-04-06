@@ -1,15 +1,15 @@
 #include "Tools.h"
 
 namespace tools {
-	void Tools::out(std::string str) {
+	void out(std::string str) {
 		std::cout << str << std::endl;
 	}
 
-	void Tools::input(std::string& str) {
+	void input(std::string& str) {
 		std::cin >> str;
 	}
 
-	int Tools::to_int(const std::string& str) {
+	int to_int(const std::string& str) {
 		if (str.empty()) {
 			throw std::invalid_argument(std::string("str empty!"));
 		}
@@ -24,7 +24,7 @@ namespace tools {
 		return POM*num;
 	}
 
-	double Tools::to_float(const std::string& str) {
+	double to_float(const std::string& str) {
 		if (str.empty()) {
 			throw std::invalid_argument(std::string("str empty!"));
 		}
@@ -50,35 +50,7 @@ namespace tools {
 		return POM*num;
 	}
 	
-	void Tools::System(const std::string& str) {
+	void System(const std::string& str) {
 		system(str.c_str());
-	}
-
-	GameRandom::RoleType Input::Load_GameRandomRole(std::string& address_) {
-		return GameRandom::RoleType{};
-	}
-
-	GameRandom::RoleType Out::Load_GameRandomRole(std::string& address_) {
-		return GameRandom::RoleType{};
-	}
-
-	GameRandom::RoleType Random::Load_GameRandomRole(std::string& address_) {
-		return GameRandom::RoleType{};
-	}
-
-	GameRandom::RoleType File::Load_GameRandomRole(std::string& address_) {
-		std::ifstream file(address_.c_str());
-		if (!file.is_open()) {
-			GameRandom::RoleType error;
-			error.name = std::string("error");
-			return error;
-		}
-		GameRandom::RoleType load_role;
-		file >> load_role.CID >> load_role.name >> load_role.HP >>
-			load_role.MP >> load_role.activeSkillMP >>
-			load_role.passiveSkill>> load_role.attack >>
-			load_role.damage >> load_role.dicenum >> 
-			load_role.ATKnum >>load_role.DMGnum;
-		return load_role;
 	}
 }

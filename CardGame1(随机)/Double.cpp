@@ -1,52 +1,47 @@
 #include "Double.h"
 
-namespace GameRandom {
-	namespace role {
-		Double::Double(tools::Out& R_Out, tools::Input& R_Input) {
-			while (1) {
-				tools::File File;
-				basic = File.Load_GameRandomRole(address);
-				if (basic.name == "error") {
-					R_Out.out(std::string("读取失败"));
-					R_Out.out("确定输入Y/y,重选其他任意键");
-					std::string judge;
-					R_Input.input(judge);
-					if (judge == "y" || judge == "Y") {
-						continue;
-					}
-					else {
-						throw std::ios_base::failure(address+std::string(":read file error"));
-					}
+namespace gamerandom {
+	Double::Double() {
+		while (1) {
+			basic = Load_GameRandomRole(address);
+			if (basic.name == "error") {
+				tools::out(std::string("读取失败"));
+				tools::out("确定输入Y/y,重选其他任意键");
+				std::string judge;
+				tools::input(judge);
+				if (judge == "y" || judge == "Y") {
+					continue;
 				}
 				else {
-					break;
+					throw std::ios_base::failure(address + std::string(":read file error"));
 				}
 			}
-			DCM.reserve(basic.dicenum);
-		}
-
-		void Double::pushRandom() {
-
-		}
-
-		void Double::showBasic(tools::Out& R_Out) {
-			R_Out.out(std::string("姓名:") + basic.name);//输出性别
-			R_Out.out(std::string("HP:") + std::to_string(basic.HP));
-			R_Out.out(std::string("MP:") + std::to_string(basic.MP));
-			R_Out.out(std::string("总共骰子:") + std::to_string(basic.dicenum));
-			R_Out.out(std::string("攻击骰子:") + std::to_string(basic.ATKnum));
-			R_Out.out(std::string("防御骰子:") + std::to_string(basic.DMGnum));
-		}
-
-		float Double::getAttack() {
-			float ATK=basic.attack;
-			if (nowActiveSkill) {
-				nowActiveSkill = 0;
-				ATK *= 2;
-			}
-			if (passiveSkill()) {
-				ATK *= 2;
+			else {
+				break;
 			}
 		}
+		DCM.reserve(basic.dicenum);
+	}
+
+	void Double::pushRandom() {
+		for (int i = 0; i < DCM.size(); i++) {
+			DCM[i] = Random(9) + 1;
+		}
+	}
+
+	float Double::getAttack() {
+		float ATK = basic.attack;
+		if (nowActiveSkill) {
+			nowActiveSkill = 0;
+			ATK *= 2;
+		}
+		if (passiveSkill()) {
+			ATK *= 2;
+		}
+		return ATK;
+	}
+
+	bool Double::passiveSkill() {
+		return Random(10) - basic.passiveSkill > 0 ? 1 : 0;
 	}
 }

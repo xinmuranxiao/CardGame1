@@ -1,35 +1,53 @@
 #ifndef GENERALROLE_H
 #define GENERALROLE_H
 
-#include "RandomCommon.h"
-
+#include "Common.h"
 #include "Tools.h"
 
-namespace GameRandom {
+namespace gamerandom {
+	using RoleType = struct {
+		uint64_t CID;//角色ID
 
-	namespace role {
-		class Role {
-		public:
-			virtual float getAttack();//获得攻击倍率
+		std::string name;//名字
 
-			virtual float getDamage();//获得防御倍率
+		int HP;//血量
+		int MP;//蓝值
 
-			void changeHP(int changeHP);//修改血量
 
-			int getHP();//获得血量倍率
+		int activeSkillMP;//主动技能蓝量
+		int passiveSkill;//被动技能
 
-			void showBasic(tools::Out& R_Out);//查看基础信息
+		float attack;//攻击倍率
+		float damage;//防御倍率
 
-			virtual void pushRandom();//存储抽取的数值
-		protected:
-			RoleType basic;//存储数据
+		int dicenum;//总量
+		int ATKnum;//攻击牌
+		int DMGnum;//防御牌
+	};
 
-			bool nowActiveSkill = 0;
-			bool nowPassiveSkill = 0;
+	class Role {
+	public:
+		virtual float getAttack();//获得攻击倍率
 
-			bool skillopen=0;
-		};
-	}
+		virtual float getDamage();//获得防御倍率
+
+		void changeHP(int changeHP);//修改血量
+
+		int getHP();//获得血量倍率
+
+		void showBasic();//查看基础信息
+
+		virtual void pushRandom() = 0;//存储抽取的数值
+
+		virtual ~Role() = default;
+	protected:
+		RoleType basic;//存储数据
+
+		bool nowActiveSkill = 0;
+		bool nowPassiveSkill = 0;
+
+		bool skillopen = 0;
+	};
 }
 
 #endif // !GENERALROLE_H
