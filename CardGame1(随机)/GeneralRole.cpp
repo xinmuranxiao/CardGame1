@@ -9,6 +9,15 @@ namespace gamerandom {
 		return basic.HP;
 	}
 
+	bool Role::judge() {
+		tools::out("确定输入Y/y,重选其他任意键");
+		std::string judge;
+		tools::input(judge);
+		if (judge == "y" || judge == "Y") {
+			return 1;
+		}
+	}
+
 	float Role::getAttack() {
 		return basic.attack;
 	}

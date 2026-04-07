@@ -9,6 +9,11 @@ namespace tools {
 		std::cin >> str;
 	}
 
+	void getLine(std::string& str) {
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		std::getline(std::cin, str);
+	}
+
 	int to_int(const std::string& str) {
 		if (str.empty()) {
 			throw std::invalid_argument(std::string("str empty!"));

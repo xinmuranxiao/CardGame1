@@ -6,10 +6,7 @@ namespace gamerandom {
 			basic = Load_GameRandomRole(address);
 			if (basic.name == "error") {
 				tools::out(std::string("读取失败"));
-				tools::out("确定输入Y/y,重选其他任意键");
-				std::string judge;
-				tools::input(judge);
-				if (judge == "y" || judge == "Y") {
+				if (judge()) {
 					continue;
 				}
 				else {
@@ -20,11 +17,11 @@ namespace gamerandom {
 				break;
 			}
 		}
-		DCM.reserve(basic.dicenum);
+		DCM.resize(basic.dicenum);
 	}
 
 	void Double::pushRandom() {
-		for (int i = 0; i < DCM.size(); i++) {
+		for (int i = 0; i < basic.dicenum; i++) {
 			DCM[i] = Random(9) + 1;
 		}
 	}
@@ -43,10 +40,45 @@ namespace gamerandom {
 
 	void Double::showDCM() {
 		std::string str = std::string("抽取的数值为:\n");
-		for (int i = 0; i < DCM.size(); i++) {
+		for (int i = 0; i < basic.dicenum; i++) {
+			str += (std::to_string(i+1)) + " ";
+		}
+		str += "\n";
+		for (int i = 0; i < basic.dicenum; i++) {
 			str += std::to_string(DCM[i]) + " ";
 		}
 		tools::out(str);
+	}
+
+	void Double::choose() {
+		std::string get;
+		std::vector<int>attack;
+		while (1) {
+			tools::getLine(get);//获取选择的
+			int j = 0,p=0;//统计输入的数字,以及偏移量
+			for (int i = 0; i < get.size(); i++) {
+				if (get[i] == ' ') {
+					attack.push_back(tools::to_int(get.substr(i - p - 1, i - 1)));
+					j++;
+					p = 0;
+				}
+				else {
+					p++;
+				}
+			}
+			if (!(0 <= j && j + 1 <= basic.ATKnum)) {
+				tools::out(std::string("输入错误，请重新输入"));
+				continue;
+			}
+
+			tools::out(std::string("你选择的是"));
+			for (auto i : attack) {
+				tools::out(std::to_string(i)+" ");
+			}
+			if (judge()) {
+				break;
+			}
+		}
 	}
 
 	bool Double::passiveSkill() {

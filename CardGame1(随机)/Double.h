@@ -15,7 +15,9 @@ namespace gamerandom {//规定在gamerandom的命名空间
 
 		void pushRandom()override;
 
-		void showDCM();//输出抽取的数值
+		void showDCM()override;//输出抽取的数值
+
+		void choose() override;//选择
 	protected:
 		bool passiveSkill();
 

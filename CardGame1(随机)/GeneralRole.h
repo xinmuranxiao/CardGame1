@@ -21,8 +21,8 @@ namespace gamerandom {
 		float damage;//防御倍率
 
 		int dicenum;//总量
-		int ATKnum;//攻击牌
-		int DMGnum;//防御牌
+		int ATKnum;//攻击量
+		int DMGnum;//防御量
 	};
 
 	class Role {
@@ -39,6 +39,12 @@ namespace gamerandom {
 
 		virtual void pushRandom() = 0;//存储抽取的数值
 
+		virtual void showDCM() = 0;//查看抽取的卡牌数
+
+		virtual void choose() = 0;
+
+		bool judge();
+
 		virtual ~Role() = default;
 	protected:
 		RoleType basic;//存储数据
@@ -47,6 +53,9 @@ namespace gamerandom {
 		bool nowPassiveSkill = 0;
 
 		bool skillopen = 0;
+
+		int ATK = 0;
+		int DMG = 0;
 	};
 }
 
