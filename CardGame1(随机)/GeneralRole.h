@@ -49,6 +49,8 @@ namespace gamerandom {
 	protected:
 		RoleType basic;//´æ´¢Êý¾Ý
 
+		std::vector<int>chooseCard;
+
 		bool nowActiveSkill = 0;
 		bool nowPassiveSkill = 0;
 

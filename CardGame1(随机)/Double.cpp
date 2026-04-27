@@ -18,6 +18,7 @@ namespace gamerandom {
 			}
 		}
 		DCM.resize(basic.dicenum);
+		chooseCard.resize(10);
 	}
 
 	void Double::pushRandom() {
@@ -53,28 +54,26 @@ namespace gamerandom {
 	void Double::choose() {
 		std::string get;
 		std::vector<int>attack;
+	Re:
 		while (1) {
-			tools::getLine(get);//获取选择的
-			int j = 0,p=0;//统计输入的数字,以及偏移量
-			for (int i = 0; i < get.size(); i++) {
-				if (get[i] == ' ') {
-					attack.push_back(tools::to_int(get.substr(i - p - 1, i - 1)));
-					j++;
-					p = 0;
-				}
-				else {
-					p++;
+			tools::out(std::string("可选择的数为") + std::to_string(basic.ATKnum));
+			for (int i = 0; i < basic.ATKnum; i++) {
+				tools::out(std::string("输入第一个选择"));
+				std::string in;
+				tools::input(in);
+				chooseCard[i] = tools::to_int(in);
+				if (chooseCard[i]<0 || chooseCard[i]>basic.ATKnum) {
+					tools::out(std::string("输入错误\n请重新输入"));
+					goto Re;
 				}
 			}
-			if (!(0 <= j && j + 1 <= basic.ATKnum)) {
-				tools::out(std::string("输入错误，请重新输入"));
-				continue;
-			}
-
+			//tools::BufferClear();
 			tools::out(std::string("你选择的是"));
-			for (auto i : attack) {
-				tools::out(std::to_string(i)+" ");
+			std::string choose="";
+			for (int i = 0; i < basic.ATKnum; i++) {
+				choose += std::to_string(chooseCard[i]) + " ";
 			}
+			tools::out(choose);
 			if (judge()) {
 				break;
 			}
