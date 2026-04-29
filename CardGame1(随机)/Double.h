@@ -18,6 +18,8 @@ namespace gamerandom {//规定在gamerandom的命名空间
 		void showDCM()override;//输出抽取的数值
 
 		void choose(int mode) override;//选择
+
+		void skill() override;//技能
 	protected:
 		bool passiveSkill();
 

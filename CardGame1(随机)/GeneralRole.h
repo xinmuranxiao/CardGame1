@@ -45,6 +45,8 @@ namespace gamerandom {
 
 		bool judge();
 
+		virtual void skill() = 0;//技能的使用
+
 		virtual ~Role() = default;
 	protected:
 		RoleType basic;//存储数据

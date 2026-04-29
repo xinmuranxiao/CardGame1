@@ -55,10 +55,10 @@ namespace gamerandom {
 		std::string get;
 		std::vector<int>attack;
 		if (mode == 1) {//mode==1时人来操作
-		Re:
 			while (1) {
 				tools::out(std::string("可选择的数为") + std::to_string(basic.ATKnum));
 				for (int i = 0; i < basic.ATKnum; i++) {
+				Re:
 					tools::out(std::string("输入第") + std::to_string(i + 1) + std::string("个选择"));
 					std::string in;
 					tools::input(in);
@@ -84,6 +84,19 @@ namespace gamerandom {
 		}
 		else if (mode == 2) {//mode==2时AI操作
 
+		}
+	}
+
+	void Double::skill() {
+		if (skillopen) {
+			tools::out(std::string("技能可以使用，是否使用"));
+			if (judge()) {
+				ATK *= basic.attack;
+				skillopen = 0;
+			}
+		}
+		if (nowActiveSkill == basic.activeSkillMP) {
+			skillopen = 1;
 		}
 	}
 
