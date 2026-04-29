@@ -41,7 +41,7 @@ namespace gamerandom {
 
 		virtual void showDCM() = 0;//查看抽取的卡牌数
 
-		virtual void choose() = 0;
+		virtual void choose(int mode) = 0;
 
 		bool judge();
 
