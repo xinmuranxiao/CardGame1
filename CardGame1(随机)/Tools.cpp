@@ -54,7 +54,22 @@ namespace tools {
 		system(str.c_str());
 	}
 
-	void BufferClear() {
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max());
+	bool judge() {//确认选择
+		tools::out("确定输入Y/y,重选其他任意键");
+		std::string judge;
+		tools::input(judge);
+		if (judge == "y" || judge == "Y") {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+
+	int Random(int n) {//生成1~n的随机数
+		std::random_device rd;//生成随机数种子
+		std::mt19937 gen(rd());//转换数
+		std::uniform_int_distribution<> dis(0, n);//设置范围
+		return dis(gen);
 	}
 }

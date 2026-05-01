@@ -1,7 +1,7 @@
 #include "CGRTools.h"
 
 namespace gamerandom {
-	RoleType Load_GameRandomRole(std::string& address_) {
+	RoleType Load_GameRandomRole(std::string& address_) {//从文件中读取角色信息
 		std::ifstream file(address_.c_str());
 		if (!file.is_open()) {
 			RoleType error;
@@ -17,26 +17,7 @@ namespace gamerandom {
 		return load_role;
 	}
 
-	int Random(int n) {
-		std::random_device rd;//生成随机数种子
-		std::mt19937 gen(rd());//转换数
-		std::uniform_int_distribution<> dis(0, n);//设置范围
-		return dis(gen);
-	}
-
-	void showRole() {
+	void showRole() {//显示角色信息
 		tools::out(std::string("1.double(达博)"));
-	}
-
-	bool judge() {
-		tools::out("确定输入Y/y,重选其他任意键");
-		std::string judge;
-		tools::input(judge);
-		if (judge == "y" || judge == "Y") {
-			return 1;
-		}
-		else {
-			return 0;
-		}
 	}
 }

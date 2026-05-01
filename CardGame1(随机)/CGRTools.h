@@ -13,10 +13,6 @@ namespace gamerandom {
 
 	void showRole();//显示角色信息
 
-	bool judge();//确认选择
-
-	int Random(int n);//随机数生成器，生成1~n的随机数
-
 	bool chooseRole(const std::string judge_str_player, std::unique_ptr<Role>& judge_Role);//选择角色
 }
 

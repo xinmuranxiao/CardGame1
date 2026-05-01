@@ -9,15 +9,6 @@ namespace gamerandom {
 		return basic.HP;
 	}
 
-	bool Role::judge() {
-		tools::out("确定输入Y/y,重选其他任意键");
-		std::string judge;
-		tools::input(judge);
-		if (judge == "y" || judge == "Y") {
-			return 1;
-		}
-	}
-
 	float Role::getAttack() {
 		return basic.attack;
 	}
@@ -38,6 +29,8 @@ namespace gamerandom {
 	void Role::choose() {
 		std::string get;
 		std::vector<int>attack;
+		pushRandom();
+		showDCM();
 		if (mode == 1) {//mode==1时人来操作
 			playearATKchoose();
 		}
@@ -68,10 +61,41 @@ namespace gamerandom {
 				ATK += DCM[chooseCard[i]];
 			}
 			tools::out(choose);
-			if (judge()) {
+			if (tools::judge()) {
 				tools::out(std::string("本轮选择总和点数为") + std::to_string(ATK));
 				break;
 			}
+		}
+	}
+
+	void Role::pushRandom() {
+		for (int i = 0; i < basic.dicenum; i++) {
+			DCM[i] = tools::Random(9) + 1;
+		}
+	}
+
+	void Role::showDCM() {
+		std::string str = std::string("抽取的数值为:\n");
+		for (int i = 0; i < basic.dicenum; i++) {
+			str += (std::to_string(i + 1)) + " ";
+		}
+		str += "\n";
+		for (int i = 0; i < basic.dicenum; i++) {
+			str += std::to_string(DCM[i]) + " ";
+		}
+		tools::out(str);
+	}
+
+	void Role::skill() {
+		if (skillopen) {
+			tools::out(std::string("技能可以使用，是否使用"));
+			if (tools::judge()) {
+				ATK *= basic.attack;
+				skillopen = 0;
+			}
+		}
+		if (nowActiveSkill) {
+			skillopen = 1;
 		}
 	}
 }

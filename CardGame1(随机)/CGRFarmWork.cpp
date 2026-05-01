@@ -3,7 +3,7 @@
 namespace gamerandom {
 	bool chooseRole(const std::string judge_str_player,std::unique_ptr<Role>& judge_Role) {
 		if (judge_str_player[0] == '1') {
-			judge_Role = std::make_unique<Double>();
+			judge_Role = std::make_unique<Double>(1);
 			return 1;
 		}
 		else {
@@ -27,7 +27,7 @@ namespace gamerandom {
 
 	void setAI(std::unique_ptr<Role>& AI) {
 		while (1) {
-			if (chooseRole(std::to_string(Random(1)), AI)) {
+			if (chooseRole(std::to_string(tools::Random(1)), AI)) {
 				break;
 			}
 		}

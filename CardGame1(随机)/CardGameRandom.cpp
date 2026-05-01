@@ -19,7 +19,7 @@ namespace gamerandom {
 			}
 			tools::out(std::string("你选择的是"));//打印“你选择的是”
 			player->showBasic();//查看选择
-			if (judge()) {
+			if (tools::judge()) {
 				break;
 			}
 			tools::System("cls");//清屏
@@ -45,14 +45,12 @@ namespace gamerandom {
 
 		while (1) {
 			tools::System("cls");
-			player->pushRandom();
-			player->showDCM();
 			player->choose();
 
 			if (AI->getHP() < 0 || player->getHP() < 0) {
 				break;
 			}
-			else if(judge()) {
+			else if(tools::judge()) {
 				break;
 			}
 		}

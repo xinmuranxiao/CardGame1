@@ -14,7 +14,9 @@ namespace tools {
 
 	void System(const std::string& str);//系统控制台
 	
-	void BufferClear();//清理缓存区
+	bool judge();//判断输入是否为y或n
+
+	int Random(int n);//随机数生成器，生成1~n的随机数
 }
 
 #endif // !TOOLS_H

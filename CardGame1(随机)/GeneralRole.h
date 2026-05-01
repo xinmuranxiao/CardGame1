@@ -37,13 +37,13 @@ namespace gamerandom {
 
 		void showBasic();//查看基础信息
 
-		virtual void pushRandom() = 0;//存储抽取的数值
+		virtual void pushRandom();//存储抽取的数值
 
-		virtual void showDCM() = 0;//查看抽取的卡牌数
+		virtual void showDCM();//查看抽取的卡牌数
 
-		virtual void choose() = 0;//选择
+		virtual void choose();//选择
 
-		virtual void skill() = 0;//技能的使用
+		virtual void skill();//技能的使用
 
 		virtual ~Role() = default;//虚析构函数
 	protected:
