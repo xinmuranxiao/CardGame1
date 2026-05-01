@@ -7,7 +7,7 @@
 namespace gamerandom {//规定在gamerandom的命名空间
 	class Double : public Role {//定义Double角色
 	public://公共函数
-		Double();//构造读取Double信息
+		Double(int mode_);//构造读取Double信息
 
 		float getAttack()override;//获取攻击倍率
 
@@ -17,13 +17,11 @@ namespace gamerandom {//规定在gamerandom的命名空间
 
 		void showDCM()override;//输出抽取的数值
 
-		void choose(int mode) override;//选择
+		void choose() override;//选择
 
 		void skill() override;//技能
 	protected:
 		bool passiveSkill();
-
-		std::vector<int> DCM;//存储抽取的数值
 
 		std::string address = std::string("Role\\Double.txt");
 	};

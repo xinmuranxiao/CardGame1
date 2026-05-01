@@ -47,7 +47,7 @@ namespace gamerandom {
 			tools::System("cls");
 			player->pushRandom();
 			player->showDCM();
-			player->choose(1);
+			player->choose();
 
 			if (AI->getHP() < 0 || player->getHP() < 0) {
 				break;

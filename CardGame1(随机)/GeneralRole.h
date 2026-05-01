@@ -41,25 +41,29 @@ namespace gamerandom {
 
 		virtual void showDCM() = 0;//查看抽取的卡牌数
 
-		virtual void choose(int mode) = 0;
-
-		bool judge();
+		virtual void choose() = 0;//选择
 
 		virtual void skill() = 0;//技能的使用
 
-		virtual ~Role() = default;
+		virtual ~Role() = default;//虚析构函数
 	protected:
+		virtual void playearATKchoose();//玩家攻击选择
+
 		RoleType basic;//存储数据
 
-		std::vector<int>chooseCard;
+		std::vector<int>chooseCard;//存储选择的卡牌
 
-		bool nowActiveSkill = 0;
-		bool nowPassiveSkill = 0;
+		bool nowActiveSkill = 0;//当前主动技能是否开启
+		bool nowPassiveSkill = 0;//当前被动技能是否开启
 
-		bool skillopen = 0;
+		bool skillopen = 0;//技能是否开启
 
-		int ATK = 0;
-		int DMG = 0;
+		int ATK = 0;//攻击的数值
+		int DMG = 0;//防御的数值
+
+		int mode = 1;//1为玩家，2为AI
+
+		std::vector<int> DCM;//存储抽取的数值
 	};
 }
 

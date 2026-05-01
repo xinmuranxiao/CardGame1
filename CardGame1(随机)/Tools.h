@@ -7,7 +7,6 @@ namespace tools {
 	void out(std::string str);
 
 	void input(std::string& str);
-	void getLine(std::string& str);
 
 	int to_int(const std::string& str);//string to int
 
