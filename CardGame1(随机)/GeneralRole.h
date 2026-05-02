@@ -51,7 +51,7 @@ namespace gamerandom {
 
 		RoleType basic;//存储数据
 
-		std::vector<int>chooseCard;//存储选择的卡牌
+		std::set<int>chooseCard;//存储选择的卡牌
 
 		bool nowActiveSkill = 0;//当前主动技能是否开启
 		bool nowPassiveSkill = 0;//当前被动技能是否开启

@@ -41,24 +41,27 @@ namespace gamerandom {
 
 	void Role::playearATKchoose() {
 		while (1) {
+		Rec://标签，输入错误时跳转到这里
 			tools::out(std::string("可选择的数为") + std::to_string(basic.ATKnum));
 			for (int i = 0; i < basic.ATKnum; i++) {
-			Re:
+			Reic://标签，输入错误时跳转到这里	
 				tools::out(std::string("输入第") + std::to_string(i + 1) + std::string("个选择"));
 				std::string in;
 				tools::input(in);
-				chooseCard[i] = tools::to_int(in) - 1;
-				if (chooseCard[i]<0 || chooseCard[i]>basic.ATKnum) {
-					tools::out(std::string("输入错误\n请重新输入"));
-					goto Re;
-				}
+				if(tools::to_int(in)<0||tools::to_int(in)>basic.dicenum)
+					goto Reic;
+				chooseCard.insert( tools::to_int(in) - 1);
 			}
 			//tools::BufferClear();
+			if (chooseCard.size() < basic.ATKnum) {
+				tools::out(std::string("输入错误，已选择的数为") + std::to_string(chooseCard.size()) + std::string("个，少输入了"));
+				goto Rec;
+			}
 			tools::out(std::string("选择的是"));
 			std::string choose = "";
-			for (int i = 0; i < basic.ATKnum; i++) {
-				choose += std::to_string(chooseCard[i] + 1) + " ";
-				ATK += DCM[chooseCard[i]];
+			for (auto i = chooseCard.begin(); i != chooseCard.end(); i++) {
+				choose += std::to_string(*i + 1) + " ";
+				ATK += DCM[*i];
 			}
 			tools::out(choose);
 			if (tools::judge()) {

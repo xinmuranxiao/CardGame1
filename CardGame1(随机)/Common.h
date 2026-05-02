@@ -6,6 +6,8 @@
 #include <string>
 #include <random>
 
+#include <set>
+
 using OutFunc = void(*)(std::string);
 
 using InputFunc = void(*)(std::string&);

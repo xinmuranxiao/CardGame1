@@ -19,7 +19,6 @@ namespace gamerandom {
 			}
 		}
 		DCM.resize(basic.dicenum);
-		chooseCard.resize(10);
 	}
 
 	float Double::getAttack() {
