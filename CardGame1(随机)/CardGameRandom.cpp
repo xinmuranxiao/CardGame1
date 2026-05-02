@@ -46,6 +46,7 @@ namespace gamerandom {
 		while (1) {
 			tools::System("cls");
 			player->choose();
+			player->skill();
 
 			if (AI->getHP() < 0 || player->getHP() < 0) {
 				break;

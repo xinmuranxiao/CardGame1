@@ -11,9 +11,12 @@ namespace gamerandom {//规定在gamerandom的命名空间
 
 		Double(int mode_);//构造读取Double信息
 
-		float getAttack()override;//获取攻击倍率
+		int skill() override;//技能的使用
+
 	protected:
 		bool passiveSkill();
+
+		bool player_skillchoose();//玩家主动技能选择
 
 		std::string address = std::string("Role\\Double.txt");
 	};

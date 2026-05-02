@@ -21,16 +21,43 @@ namespace gamerandom {
 		DCM.resize(basic.dicenum);
 	}
 
-	float Double::getAttack() {
-		float ATK = basic.attack;
-		if (nowActiveSkill) {
-			nowActiveSkill = 0;
-			ATK *= 2;
+	int Double::skill() {
+		ATK *= basic.attack;
+		if (nowActiveSkill >= basic.activeSkillMP) {
+			tools::out(std::string("主动技能已准备好，是否使用主动技能，使用后攻击翻倍"));
+			if (mode == 1) {//主动技能：攻击翻倍
+				if (player_skillchoose()) {
+					ATK *= 2;
+					nowActiveSkill = 0;
+				}
+			}
+			else if (mode == 2) {//AI主动技能：有概率攻击翻倍
+			}
+			if (passiveSkill()) {
+				ATK *= 2;
+			}
 		}
-		if (passiveSkill()) {
-			ATK *= 2;
+		if(passiveSkill()) {
+			tools::out(std::string("被动技能发动，攻击翻倍\n最终伤害为")+std::to_string(ATK));
+			return ATK * 4;
 		}
-		return ATK;
+		else {
+			tools::out(std::string("被动技能未发动，攻击倍率不变\n最终伤害为")+std::to_string(ATK));
+			return ATK;
+		}
+	}
+
+
+	bool Double::player_skillchoose() {
+		tools::out(std::string("输入Y/y使用"));
+		if (tools::judge()) {
+			tools::out(std::string("主动技能发动，攻击翻倍"));
+			return 1;
+		}
+		else {
+			tools::out(std::string("主动技能未发动，攻击倍率不变"));
+			return 0;
+		}
 	}
 
 	bool Double::passiveSkill() {//被动技能：有概率攻击翻倍

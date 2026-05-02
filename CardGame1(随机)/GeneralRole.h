@@ -43,20 +43,20 @@ namespace gamerandom {
 
 		virtual void choose();//选择
 
-		virtual void skill();//技能的使用
+		virtual int skill();//技能的使用
 
 		virtual ~Role() = default;//虚析构函数
 	protected:
-		virtual void playearATKchoose();//玩家攻击选择
+		virtual void playear_ATKchoose();//玩家攻击选择
 
 		RoleType basic;//存储数据
 
 		std::set<int>chooseCard;//存储选择的卡牌
 
-		bool nowActiveSkill = 0;//当前主动技能是否开启
-		bool nowPassiveSkill = 0;//当前被动技能是否开启
+		float nowActiveSkill = 0;//当前主动技能值
+		float nowPassiveSkill = 0;//当前被动技能值
 
-		bool skillopen = 0;//技能是否开启
+		bool skillopen = 0;//主动技能是否开启
 
 		int ATK = 0;//攻击的数值
 		int DMG = 0;//防御的数值

@@ -32,14 +32,14 @@ namespace gamerandom {
 		pushRandom();
 		showDCM();
 		if (mode == 1) {//mode==1时人来操作
-			playearATKchoose();
+			playear_ATKchoose();
 		}
 		else if (mode == 2) {//mode==2时AI操作
 
 		}
 	}
 
-	void Role::playearATKchoose() {
+	void Role::playear_ATKchoose() {
 		while (1) {
 		Rec://标签，输入错误时跳转到这里
 			tools::out(std::string("可选择的数为") + std::to_string(basic.ATKnum));
@@ -89,16 +89,7 @@ namespace gamerandom {
 		tools::out(str);
 	}
 
-	void Role::skill() {
-		if (skillopen) {
-			tools::out(std::string("技能可以使用，是否使用"));
-			if (tools::judge()) {
-				ATK *= basic.attack;
-				skillopen = 0;
-			}
-		}
-		if (nowActiveSkill) {
-			skillopen = 1;
-		}
+	int Role::skill() {
+		return 0;
 	}
 }
